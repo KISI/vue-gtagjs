@@ -61,7 +61,9 @@ function initialize(trackId, opts) {
  */
 function configPagePath(pathPath, trackId, opts) {
   initialize(trackId, opts);
-  gtag('config', trackId, { 'page_path': pathPath });
+  var gtagOpt = opts.gtagOpt || {};
+  gtagOpt.page_path = pathPath;
+  gtag('config', trackId, gtagOpt);
 }
 
 function log(url) {
